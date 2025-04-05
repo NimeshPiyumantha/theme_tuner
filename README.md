@@ -17,7 +17,7 @@ Add `theme_tuner` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  theme_tuner: ^0.0.1
+  theme_tuner: ^0.0.2
 
 ```
 
