@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// First, create an AnimatedTheme wrapper in your AppView:
 class AppView extends StatelessWidget {
   const AppView({Key? key}) : super(key: key);
 
@@ -38,19 +39,40 @@ class AppView extends StatelessWidget {
         if (state is ThemeLoaded) {
           return MaterialApp(
             title: 'Flutter Theme Demo with BLoC',
-            theme: state.themeModel.themeData,
-            home: const HomePage(),
+            home: AnimatedThemeBuilder(
+              themeData: state.themeModel.themeData,
+              child: const HomePage(),
+            ),
           );
         }
-        // Show a loading screen while theme is being loaded
+        // Fallback
         return MaterialApp(
-          home: Scaffold(
-            body: Center(
-              child: CircularProgressIndicator(),
-            ),
-          ),
+          home: Scaffold(body: Center(child: CircularProgressIndicator())),
         );
       },
+    );
+  }
+}
+
+// Create the AnimatedThemeBuilder class:
+class AnimatedThemeBuilder extends StatelessWidget {
+  final ThemeData themeData;
+  final Widget child;
+  final Duration duration;
+
+  const AnimatedThemeBuilder({
+    super.key,
+    required this.themeData,
+    required this.child,
+    this.duration = const Duration(milliseconds: 500),
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedTheme(
+      data: themeData,
+      duration: duration,
+      child: child,
     );
   }
 }

@@ -21,3 +21,5 @@ class ThemeChangedEvent extends ThemeEvent {
   @override
   List<Object> get props => [themeType];
 }
+
+class ThemeFollowSystemEvent extends ThemeEvent {}

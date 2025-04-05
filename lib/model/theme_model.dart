@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:equatable/equatable.dart';
 
 // Define the different theme options
-enum ThemeType { light, dark, green, purple, custom }
+enum ThemeType { light, dark, custom, system }
 
 class ThemeModel extends Equatable {
   final ThemeType type;
@@ -15,6 +15,14 @@ class ThemeModel extends Equatable {
 }
 
 class AppThemes {
+  // Add this to your AppThemes class
+  static ThemeModel systemTheme() {
+    return ThemeModel(
+      type: ThemeType.system,
+      themeData: ThemeData.light(), // Default, will be overridden
+    );
+  }
+
   // Light theme
   static final ThemeModel light = ThemeModel(
     type: ThemeType.light,
@@ -43,43 +51,11 @@ class AppThemes {
     ),
   );
 
-  // Green theme
-  static final ThemeModel green = ThemeModel(
-    type: ThemeType.green,
-    themeData: ThemeData(
-      brightness: Brightness.light,
-      primarySwatch: Colors.green,
-      appBarTheme: const AppBarTheme(
-        backgroundColor: Colors.green,
-        foregroundColor: Colors.white,
-      ),
-      scaffoldBackgroundColor: Colors.green[50],
-    ),
-  );
-
-  // Purple theme
-  static final ThemeModel purple = ThemeModel(
-    type: ThemeType.purple,
-    themeData: ThemeData(
-      brightness: Brightness.light,
-      primarySwatch: Colors.purple,
-      appBarTheme: const AppBarTheme(
-        backgroundColor: Colors.purple,
-        foregroundColor: Colors.white,
-      ),
-      scaffoldBackgroundColor: Colors.purple[50],
-    ),
-  );
-
   // Method to get ThemeModel from ThemeType
   static ThemeModel getThemeFromType(ThemeType type) {
     switch (type) {
       case ThemeType.dark:
         return dark;
-      case ThemeType.green:
-        return green;
-      case ThemeType.purple:
-        return purple;
       case ThemeType.light:
       default:
         return light;
