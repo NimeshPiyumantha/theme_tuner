@@ -1,6 +1,6 @@
 name: theme_tuner
 description: "ThemeTuner – Effortless and flexible theme management for Flutter. Supports light, dark, and custom themes with runtime switching and persistent user preferences."
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/NimeshPiyumantha/theme_tuner.git
 repository: https://github.com/NimeshPiyumantha/theme_tuner.git
 
