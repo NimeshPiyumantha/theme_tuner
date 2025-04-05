@@ -43,18 +43,6 @@ class HomePage extends StatelessWidget {
                         color: Colors.grey[800]!,
                         label: 'Dark Theme',
                       ),
-                      _themeButton(
-                        context: context,
-                        themeType: ThemeType.green,
-                        color: Colors.green,
-                        label: 'Green Theme',
-                      ),
-                      _themeButton(
-                        context: context,
-                        themeType: ThemeType.purple,
-                        color: Colors.purple,
-                        label: 'Purple Theme',
-                      ),
                     ],
                   ),
                 ],
